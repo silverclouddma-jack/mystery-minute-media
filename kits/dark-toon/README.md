@@ -47,3 +47,9 @@ Red only for the question, the ring and the answer stamp (plus the host's hat). 
 chips with brass tabs, OUT stamps in cream. Lineup and item card on screen from frame 1. Captions FreeMono cream at
 y 1330, hidden during the countdown. Voice am_onyx x1.06, music "tension". Close: host + casebook cover +
 "50 CASES · MYSTERYMINUTEHQ.COM", spoken "Fifty more cases are waiting in the Mystery Minute Detective Casebook."
+
+## Long-form thumbnail (1280x720)
+The breakout riddle-compilation look: one case's question on a dark bar (key word in red) over the numbered lineup.
+Put the featured case's people in `case.json`, run `python3 tools/make_script.py` + voice.py + words.py (the page needs
+timing to boot), then:
+`python3 tools/thumb.py "WHO IS " "LYING?" "8 DETECTIVE RIDDLES · ONLY 1% SOLVE ALL" thumb.jpg` and look at it.

@@ -91,8 +91,10 @@ export function buildShots(E) {
 
   // ── hook (+ setup): the lineup under the lamp + the item card, on screen from frame 1 ──
   add({ id: 'hook', at: 0, note: 'lineup + item card from frame 1', draw: (lt, d, t, blit) => {
-    host.group.visible = false; pose(t); shoot(W1, W2, WA, V3(0, 0.66, Z), eio(clamp(lt / d)));
-    blit(); if (location.search.includes('clean')) return; UI.itemCard(C.title, C.item, 1); plates(1);
+    const CLEAN = location.search.includes('clean');
+    host.group.visible = false; if (CLEAN) pose(t, { 0: 'worried', 1: 'sly', 2: 'shock', 3: 'angry' }); else pose(t); shoot(W1, W2, WA, V3(0, 0.66, Z), eio(clamp(lt / d)));
+    blit();
+    if (CLEAN) { sus.forEach((_, i) => { const [bx, by] = proj(V3(xs[i], 2.02, Z)); ctx.fillStyle = UI.P.brass; ctx.strokeStyle = UI.P.void; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(bx, by, 34, 0, 7); ctx.fill(); ctx.stroke(); ctx.font = '900 50px Inter'; ctx.fillStyle = UI.P.void; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(i + 1), bx, by + 3); }); return; } UI.itemCard(C.title, C.item, 1); plates(1);
   } });
 
   // ── examine: host with the magnifier ──
