@@ -1,0 +1,27 @@
+{
+  "slug": "who-stole-the-gold-pocket-watch",
+  "format": "suspects",
+  "title": "The Clockmaker's Window",
+  "hook": "Four suspects. One stolen pocket watch. Who took it?",
+  "item": "GOLD POCKET WATCH",
+  "setup": ["At closing time, a gold pocket watch vanished from the clock shop window."],
+  "set": { "wall": "#2B2731", "motif": "#35303D", "floor": "#4A3A30", "sky": "storm" },
+  "suspects": [
+    { "name": "ROSA", "role": "Clockmaker", "say": "Rosa, the clockmaker: I was winding clocks in the back room.", "slip": "\"I was winding clocks in the back room.\"", "look": { "body": "#8A5A7A", "hat": "bun", "hatCol": "#3A2A22", "pattern": "apron", "patCol": "#C9BFA8", "extra": ["glasses"] } },
+    { "name": "MILO", "role": "Delivery boy", "say": "Milo, the delivery boy: I left at eight, before anything happened.", "slip": "\"I left at eight, before anything happened.\"", "look": { "body": "#4F7A9A", "hat": "cap", "hatCol": "#5A4A3A", "neck": "scarf", "neckCol": "#9A4A3A" } },
+    { "name": "JUNE", "role": "Customer", "say": "June, a customer: I only stopped in to fix my watch strap.", "slip": "\"I only stopped in to fix my watch strap.\"", "look": { "body": "#6F8A5A", "hat": "flower", "hatCol": "#C98AA0", "neck": "collar", "extra": ["freckles"] } },
+    { "name": "AUGUST", "role": "Night porter", "say": "August, the night porter: I never went near the window.", "slip": "\"I never went near the window.\"", "look": { "body": "#3E4A6A", "hat": "mailcap", "hatCol": "#2A3040", "neck": "tie", "neckCol": "#8A6514", "extra": ["mustache"] } }
+  ],
+  "clues": [
+    { "label": "WINDOW CASE", "text": "Opened at 8:30 PM", "say": "The window case was opened at eight thirty." },
+    { "label": "DOOR LOG", "text": "Milo out 8:00 · June out 8:45 · August in 9:00", "say": "The door log: Milo out at eight, June out at eight forty five, August in at nine." },
+    { "label": "BACK ROOM", "text": "Clocks wound 8:20 to 8:40", "say": "And every back room clock was wound between eight twenty and eight forty." }
+  ],
+  "ask": "So who took the watch? Comment your answer.",
+  "question": ["WHO TOOK THE", "POCKET WATCH?"],
+  "answer": 2,
+  "stamp": "THIEF",
+  "reveal": "It was June.",
+  "why": ["Milo had already left, August hadn't arrived, and Rosa was busy winding clocks."],
+  "out": ["WINDING CLOCKS", "LEFT AT 8:00", "", "IN AT 9:00"]
+}
