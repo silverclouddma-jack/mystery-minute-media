@@ -1,0 +1,51 @@
+{
+  "title": "Case Files Vol. TEST",
+  "featured": 0,
+  "cases": [
+    {
+      "format": "suspects", "title": "The Clockmaker's Window", "item": "GOLD POCKET WATCH",
+      "setup": ["At closing time, a gold pocket watch vanished from the clock shop window."],
+      "suspects": [
+        { "name": "ROSA", "role": "Clockmaker", "say": "Rosa, the clockmaker: I was winding clocks in the back room.", "slip": "\"I was winding clocks in the back room.\"", "look": { "body": "#8A5A7A", "hat": "bun", "hatCol": "#3A2A22", "pattern": "apron", "patCol": "#C9BFA8", "extra": ["glasses"] } },
+        { "name": "MILO", "role": "Delivery boy", "say": "Milo, the delivery boy: I left at eight.", "slip": "\"I left at eight.\"", "look": { "body": "#4F7A9A", "hat": "cap", "hatCol": "#5A4A3A", "neck": "scarf", "neckCol": "#9A4A3A" } },
+        { "name": "JUNE", "role": "Customer", "say": "June, a customer: I only stopped in to fix my strap.", "slip": "\"I only stopped in to fix my strap.\"", "look": { "body": "#6F8A5A", "hat": "flower", "hatCol": "#C98AA0", "neck": "collar", "extra": ["freckles"] } },
+        { "name": "AUGUST", "role": "Night porter", "say": "August, the night porter: I never went near the window.", "slip": "\"I never went near the window.\"", "look": { "body": "#3E4A6A", "hat": "mailcap", "hatCol": "#2A3040", "neck": "tie", "neckCol": "#8A6514", "extra": ["mustache"] } }
+      ],
+      "clues": [
+        { "label": "WINDOW CASE", "text": "Opened at 8:30 PM", "say": "The window case was opened at eight thirty." },
+        { "label": "DOOR LOG", "text": "Milo out 8:00 · June out 8:45 · August in 9:00", "say": "The door log: Milo out at eight, June out at eight forty five, August in at nine." },
+        { "label": "BACK ROOM", "text": "Clocks wound 8:20 to 8:40", "say": "And every back room clock was wound between eight twenty and eight forty." }
+      ],
+      "ask": "Who took the watch?", "question": ["WHO TOOK THE WATCH?"], "answer": 2, "stamp": "THIEF",
+      "reveal": "It was June.", "why": ["Milo had left, August hadn't arrived, and Rosa was winding clocks."],
+      "out": ["WINDING CLOCKS", "LEFT AT 8:00", "", "IN AT 9:00"]
+    },
+    {
+      "format": "liar", "title": "The Frozen Pond", "item": "SILVER SKATE TROPHY",
+      "setup": ["The skating club's silver trophy vanished on a freezing night."],
+      "suspects": [
+        { "name": "NELL", "role": "Coach", "say": "Nell, the coach: I locked the clubhouse at six.", "slip": "\"I locked the clubhouse at six.\"" },
+        { "name": "OTTO", "role": "Groundskeeper", "say": "Otto, the groundskeeper: I rowed across the pond at seven.", "slip": "\"I rowed across the pond at seven.\"" },
+        { "name": "PIA", "role": "Skater", "say": "Pia, a skater: I skated laps until half past six.", "slip": "\"I skated laps until half past six.\"" }
+      ],
+      "clues": [
+        { "label": "WEATHER CARD", "text": "Below freezing all week", "say": "The weather card: below freezing all week." },
+        { "label": "THE POND", "text": "Frozen solid since Monday", "say": "And the pond had been frozen solid since Monday." }
+      ],
+      "ask": "Who is lying?", "question": ["WHO IS LYING?"], "answer": 1, "stamp": "LIAR",
+      "reveal": "Otto is lying.", "why": ["You can't row across a pond that's frozen solid."],
+      "out": ["", "", ""]
+    },
+    {
+      "format": "code", "title": "The Poolside Note", "item": "GOLD RELAY MEDAL",
+      "setup": ["A gold medal was stolen at the swim meet, and the thief left a coded note."],
+      "note": "ZHVW ORFNHU 12", "noteSay": "The note reads: Z H V W, O R F N H U, twelve.",
+      "clues": [
+        { "label": "ON THE BACK", "text": "Shift each letter back. Key = lanes, halved.", "say": "On the back: shift each letter back. The key is the number of lanes, halved." },
+        { "label": "THE POOL", "text": "6 lanes", "say": "The pool has six lanes." }
+      ],
+      "ask": "Where is the medal?", "question": ["WHERE IS THE MEDAL?"], "answerText": "WEST LOCKER 12",
+      "reveal": "West locker twelve.", "why": ["Six lanes halved is three, so every letter moves back three."]
+    }
+  ]
+}
