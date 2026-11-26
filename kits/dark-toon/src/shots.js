@@ -92,7 +92,7 @@ export function buildShots(E) {
   // ── hook (+ setup): the lineup under the lamp + the item card, on screen from frame 1 ──
   add({ id: 'hook', at: 0, note: 'lineup + item card from frame 1', draw: (lt, d, t, blit) => {
     host.group.visible = false; pose(t); shoot(W1, W2, WA, V3(0, 0.66, Z), eio(clamp(lt / d)));
-    blit(); UI.itemCard(C.title, C.item, 1); plates(1);
+    blit(); if (location.search.includes('clean')) return; UI.itemCard(C.title, C.item, 1); plates(1);
   } });
 
   // ── examine: host with the magnifier ──
@@ -129,7 +129,7 @@ export function buildShots(E) {
 
   // ── question + silent 5 s countdown, with everything needed on screen ──
   const qa = B.question, cdS = Le(qa) + 0.15, cdE = L(B.reveal) - 0.1;
-  window.NOCAP = (t) => t > Le(qa) + 0.05 && t < L(B.reveal) - 0.05;
+  window.NOCAP = (t) => location.search.includes('clean') || (t > Le(qa) + 0.05 && t < L(B.reveal) - 0.05);
   add({ id: 'question', at: cut(qa), note: 'question + countdown', draw: (lt, d, t) => {
     bg(lt, d);
     let y = 120;
